@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.mail.Message;
+
 /**
  * 微信公众号：Java技术栈
  */
@@ -29,7 +31,7 @@ public class Application {
     public boolean sendEmail() {
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setFrom("admin@javastack.cn");
-        msg.setBcc();
+        msg.setBcc(Message.RecipientType.CC.toString());
         msg.setTo("admin@javastack.cn");
         msg.setSubject("Java技术栈投稿");
         msg.setText("技术分享");
